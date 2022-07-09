@@ -1,0 +1,34 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <cmath>
+#include <string>
+#include <utility>
+using namespace std;
+
+
+//ios_base::sync_with_stdio(false);
+//cin.tie(NULL);
+//cout.tie(NULL);
+
+
+
+	
+int main() {
+
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+
+	int A, B;
+
+	cin >> A >> B;
+	cout << A + B;
+	
+	
+
+	return 0;
+}
+
+			
