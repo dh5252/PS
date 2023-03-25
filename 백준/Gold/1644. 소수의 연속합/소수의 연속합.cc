@@ -7,6 +7,8 @@
 #define MAX 4000000
 
 using namespace std;
+int n_prime[MAX + 1];
+long long dp[MAX];
 
 
 int main()
@@ -17,8 +19,6 @@ int main()
 
     int N;
    
-    int *n_prime = new int[MAX + 1];
-    long long *dp = new long long[MAX];
     vector<int> prime;
 
    cin >> N;
