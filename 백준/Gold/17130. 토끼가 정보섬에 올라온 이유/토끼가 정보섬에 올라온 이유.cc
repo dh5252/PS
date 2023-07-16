@@ -18,35 +18,6 @@ int N, M;
 int dx[3] = {-1, 0, 1};
 queue<pair<int,int> > que;
 
-
-void dfs(int i, int j)
-{
-    if (j == M) return;
-
-    for (int k = 0 ; k < 3; ++k)
-    {
-        int rx = dx[k] + i;
-        if (rx < 0 || rx >= N || m[rx][j + 1] == '#') continue;
-        
-        if (m[rx][j + 1] == 'C')
-        {
-            if (dp[rx][j + 1] < dp[i][j] + 1) 
-            {
-                dp[rx][j + 1] = dp[i][j] + 1;
-                dfs(rx, j + 1);
-            }
-        }
-        else
-        {
-            if (dp[rx][j + 1] < dp[i][j])
-            {
-                dp[rx][j + 1] = dp[i][j];
-                dfs(rx, j + 1);
-            }
-        }
-    }
-}
-
 int main()
 {
     std::cin.tie(nullptr);
@@ -64,7 +35,6 @@ int main()
     
     memset(dp, -1, sizeof(dp));
     dp[start_loc.first][start_loc.second] = 0;
-    //dfs(start_loc.first, start_loc.second);
 
     que.push(start_loc);
     while (!que.empty())
