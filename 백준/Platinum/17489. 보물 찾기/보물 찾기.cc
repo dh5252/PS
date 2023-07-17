@@ -18,13 +18,12 @@ using namespace std;
 int N, M, L;
 string str;
 char m[101][101];
-int visit[101][101];
 int dx[4] = {-1, 1, 0, 0};
 int dy[4] = {0, 0, -1, 1};
 int cycle;
 pair<pair<int, int>, int> save; 
 
-void dfs(int index, int i, int j)
+void dfs(long long index, int i, int j, bool visit[101][101])
 {
     if (cycle) return;
     visit[i][j]= 1;
@@ -47,7 +46,7 @@ void dfs(int index, int i, int j)
             cycle = 1;
             return;
         }
-        dfs(index + 1, rx, ry);
+        dfs(index + 1, rx, ry, visit);
     }
 }
 
@@ -62,9 +61,10 @@ int main()
     for (int i = 1 ; i <= N ; ++i)
         for (int j = 1 ; j <= M ; ++j)
             cin >> m[i][j];
-    dfs(0, 1, 1);
-    if (!cycle)
-        cout << save.second << "\n" << save.first.first << " " << save.first.second;
-    else
+    bool visit[101][101] = {};
+    dfs(0, 1, 1, visit);
+    if (cycle || save.first.first == 0 || save.first.second == 0)
         cout << -1;
+    else
+        cout << save.second << "\n" << save.first.first << " " << save.first.second;
 }
