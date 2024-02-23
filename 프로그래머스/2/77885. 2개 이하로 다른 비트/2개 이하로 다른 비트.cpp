@@ -16,8 +16,6 @@ long long solv(long long num) {
 }
 
 vector<long long> solution(vector<long long> numbers) {
-    
-    cout << ((long long)1 << 60) << "\n";
     vector<long long> answer;
     for (int i = 0 ; i < numbers.size() ; ++i)
         answer.push_back(solv(numbers[i]));
